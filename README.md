@@ -7,6 +7,9 @@ npm run db:push
 npm run dev
 ```
 
+if left unchanged: http://localhost:5173. 
+auth codes are visible in console locally.
+
 ## Preview
 
 Run deploy script, which runs the "production" docker compose file, runs migrations, builds spa and copies it to the directory where a webserver can serve it from.
@@ -19,6 +22,7 @@ Locally the copy will fail but this is fine, you can just serve with vite previe
 npm run preview
 ```
 
+auth codes are visible in docker in the auth service logs.
 ## Production
 ```
 Assuming you have the repo cloned on a VPS. You would normally use a webserver like nginx/Caddy to serve the app.
