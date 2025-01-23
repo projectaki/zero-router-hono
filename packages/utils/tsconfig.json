@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.internal.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "node_modules",
+    "./dist"
+  ]
+}

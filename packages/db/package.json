@@ -1,0 +1,45 @@
+{
+  "name": "@local/db",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "env": "dotenv -e ../../.env --",
+    "db:generate": "npm run env drizzle-kit generate",
+    "db:migrate": "npm run env drizzle-kit migrate",
+    "db:studio": "npm run env drizzle-kit studio",
+    "db:push": "npm run build && npm run env drizzle-kit push",
+    "db:push:docker": "drizzle-kit push",
+    "build": "tsc",
+    "remove:dist": "rm -rf ./dist",
+    "data": "npm run env tsx data.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "drizzle-kit": "^0.28.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@local/auth": "^0.0.0",
+    "@local/utils": "*",
+    "@openauthjs/openauth": "^0.3.5",
+    "dotenv-cli": "^8.0.0",
+    "drizzle-orm": "^0.38.3",
+    "drizzle-zod": "^0.6.1",
+    "postgres": "^3.4.5",
+    "zod": "^3.24.1"
+  },
+  "exports": {
+    "./schema/*": {
+      "types": "./src/schema/*.ts",
+      "build": "./dist/schema/*.js",
+      "default": "./src/schema/*.ts"
+    },
+    "./client": {
+      "types": "./src/client.ts",
+      "build": "./dist/client.js",
+      "default": "./src/client.ts"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "local",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:app\" \"npm run dev:api\" \"npm run dev:local\" \"npm run dev:auth\"",
+    "dev:app": "dotenv -e .env -- npm run dev --workspace=@local/app",
+    "dev:api": "dotenv -e .env -- npm run dev --workspace=@local/api",
+    "dev:auth": "dotenv -e .env -- npm run dev --workspace=@local/auth",
+    "dev:local": "dotenv -e .env -- npm run dev:local --workspace=@local/app",
+    "clean:local": "source .env && rm -rf \"${ZERO_REPLICA_FILE}\"*",
+    "db:push": "npm run db:push --workspace=@local/db",
+    "build:all": "npm run build --workspaces --if-present",
+    "remove:dist": "npm run remove:dist --workspaces --if-present",
+    "preview": "npm run serve --workspace=@local/app"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "dotenv-cli": "^8.0.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@local/api",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "serve": "node --conditions=build dist/index.js",
+    "remove:dist": "rm -rf ./dist"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@hono/zod-validator": "^0.4.2",
+    "@local/auth": "*",
+    "@local/db": "*",
+    "@local/utils": "*",
+    "@openauthjs/openauth": "^0.3.5",
+    "drizzle-orm": "^0.38.3",
+    "hono": "^4.6.15",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.7.2"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
